@@ -1,0 +1,28 @@
+---
+
+# jenkins variables
+project_name: docker-bambustudio
+external_type: github_stable
+release_type: stable
+release_tag: latest
+ls_branch: master
+repo_vars:
+  - EXT_USER = 'bambulab'
+  - EXT_REPO = 'BambuStudio'
+  - BUILD_VERSION_ARG = 'BAMBUSTUDIO_VERSION'
+  - LS_USER = 'linuxserver'
+  - LS_REPO = 'docker-bambustudio'
+  - CONTAINER_NAME = 'bambustudio'
+  - DOCKERHUB_IMAGE = 'linuxserver/bambustudio'
+  - DEV_DOCKERHUB_IMAGE = 'lsiodev/bambustudio'
+  - PR_DOCKERHUB_IMAGE = 'lspipepr/bambustudio'
+  - DIST_IMAGE = 'ubuntu'
+  - MULTIARCH = 'false'
+  - CI = 'true'
+  - CI_WEB = 'true'
+  - CI_PORT = '3000'
+  - CI_SSL = 'false'
+  - CI_DELAY = '120'
+  - CI_DOCKERENV = 'TZ=US/Pacific'
+  - CI_AUTH = 'user:password'
+  - CI_WEBPATH = ''
