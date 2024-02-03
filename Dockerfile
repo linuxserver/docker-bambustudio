@@ -48,6 +48,7 @@ RUN \
   chmod +x /tmp/bambu.app && \
   ./bambu.app --appimage-extract && \
   mv squashfs-root /opt/bambustudio && \
+  localedef -i en_GB -f UTF-8 en_GB.UTF-8 && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
