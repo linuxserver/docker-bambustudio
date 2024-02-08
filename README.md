@@ -81,6 +81,7 @@ This container is based on [Docker Baseimage KasmVNC](https://github.com/linuxse
 | FM_HOME | This is the home directory (landing) for the file manager, default "/config". |
 | START_DOCKER | If set to false a container with privilege will not automatically start the DinD Docker setup. |
 | DRINODE | If mounting in /dev/dri for [DRI3 GPU Acceleration](https://www.kasmweb.com/kasmvnc/docs/master/gpu_acceleration.html) allows you to specify the device to use IE `/dev/dri/renderD128` |
+| LC_ALL | Set the Language for the container to run as IE `fr_FR.UTF-8` `ar_AE.UTF-8` |
 
 #### Optional run configurations
 
@@ -311,4 +312,5 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **08.02.24:** - Fix printer camera by ingesting Fedora Appimage, Add program icon for PWA ingestion.
 * **15.11.23:** - Initial release.
