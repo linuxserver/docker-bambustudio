@@ -12,6 +12,10 @@ ENV TITLE=BambuStudio \
     SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 
 RUN \
+  echo "**** add icon ****" && \
+  curl -o \
+    /kclient/public/icon.png \
+    https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bambustudio-logo.png && \
   echo "**** install packages ****" && \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
@@ -32,6 +36,7 @@ RUN \
     libgstreamer1.0 \
     libgstreamer-plugins-bad1.0 \
     libgstreamer-plugins-base1.0 \
+    libosmesa6 \
     libwebkit2gtk-4.0-37 \
     libwx-perl && \
   echo "**** install bambu studio from appimage ****" && \
@@ -40,7 +45,7 @@ RUN \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/latest"     | awk '/url/{print $4;exit}' FS='[""]') && \
-  DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | awk '/browser_download_url.*ubuntu/{print $4;exit}' FS='[""]') && \
+  DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | awk '/browser_download_url.*fedora/{print $4;exit}' FS='[""]') && \
   cd /tmp && \
   curl -o \
     /tmp/bambu.app -L \
