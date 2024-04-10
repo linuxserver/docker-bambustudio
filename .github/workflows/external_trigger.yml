@@ -73,27 +73,37 @@ jobs:
             echo "New version ${EXT_RELEASE} found; but there already seems to be an active build on Jenkins; exiting" >> $GITHUB_STEP_SUMMARY
             exit 0
           else
-            echo "**** New version ${EXT_RELEASE} found; old version was ${IMAGE_VERSION}. Triggering new build ****"
-            echo "New version ${EXT_RELEASE} found; old version was ${IMAGE_VERSION}. Triggering new build" >> $GITHUB_STEP_SUMMARY
-            response=$(curl -iX POST \
-              https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-bambustudio/job/master/buildWithParameters?PACKAGE_CHECK=false \
-              --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} | grep -i location | sed "s|^[L|l]ocation: \(.*\)|\1|")
-            echo "**** Jenkins job queue url: ${response%$'\r'} ****"
-            echo "**** Sleeping 10 seconds until job starts ****"
-            sleep 10
-            buildurl=$(curl -s "${response%$'\r'}api/json" | jq -r '.executable.url')
-            buildurl="${buildurl%$'\r'}"
-            echo "**** Jenkins job build url: ${buildurl} ****"
-            echo "Jenkins job build url: ${buildurl}" >> $GITHUB_STEP_SUMMARY
-            echo "**** Attempting to change the Jenkins job description ****"
-            curl -iX POST \
-              "${buildurl}submitDescription" \
-              --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} \
-              --data-urlencode "description=GHA external trigger https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
-              --data-urlencode "Submit=Submit"
-            echo "**** Notifying Discord ****"
-            TRIGGER_REASON="A version change was detected for bambustudio tag latest. Old version:${IMAGE_VERSION} New version:${EXT_RELEASE}"
-            curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 9802903,
-              "description": "**Build Triggered** \n**Reason:** '"${TRIGGER_REASON}"' \n**Build URL:** '"${buildurl}display/redirect"' \n"}],
-              "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}
+            echo "**** New version ${EXT_RELEASE} found; old version was ${IMAGE_VERSION}. Checking artifacts. . . ****"
+            assets=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/tags/${EXT_RELEASE}" | jq -r '.assets[].browser_download_url')
+            if echo "$assets" | grep -q "Bambu_Studio_linux_fedora"; then
+              echo "**** New version ${EXT_RELEASE} found; old version was ${IMAGE_VERSION}. Triggering new build ****"
+              echo "New version ${EXT_RELEASE} found; old version was ${IMAGE_VERSION}. Triggering new build" >> $GITHUB_STEP_SUMMARY
+              response=$(curl -iX POST \
+                https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-bambustudio/job/master/buildWithParameters?PACKAGE_CHECK=false \
+                --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} | grep -i location | sed "s|^[L|l]ocation: \(.*\)|\1|")
+              echo "**** Jenkins job queue url: ${response%$'\r'} ****"
+              echo "**** Sleeping 10 seconds until job starts ****"
+              sleep 10
+              buildurl=$(curl -s "${response%$'\r'}api/json" | jq -r '.executable.url')
+              buildurl="${buildurl%$'\r'}"
+              echo "**** Jenkins job build url: ${buildurl} ****"
+              echo "Jenkins job build url: ${buildurl}" >> $GITHUB_STEP_SUMMARY
+              echo "**** Attempting to change the Jenkins job description ****"
+              curl -iX POST \
+                "${buildurl}submitDescription" \
+                --user ${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }} \
+                --data-urlencode "description=GHA external trigger https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+                --data-urlencode "Submit=Submit"
+              echo "**** Notifying Discord ****"
+              TRIGGER_REASON="A version change was detected for bambustudio tag latest. Old version:${IMAGE_VERSION} New version:${EXT_RELEASE}"
+              curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 9802903,
+                "description": "**Build Triggered** \n**Reason:** '"${TRIGGER_REASON}"' \n**Build URL:** '"${buildurl}display/redirect"' \n"}],
+                "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}
+            else
+              echo "**** Not all artifacts are published yet, skipping trigger ****"
+              FAILURE_REASON="New version ${EXT_RELEASE} for BambuStudio is detected, however not all artifacts are uploaded to upstream release yet. Will try again in 1 hr."
+              curl -X POST -H "Content-Type: application/json" --data '{"avatar_url": "https://cdn.discordapp.com/avatars/354986384542662657/df91181b3f1cf0ef1592fbe18e0962d7.png","embeds": [{"color": 9802903,
+                "description": "**Trigger Failed** \n**Reason:** '"${FAILURE_REASON}"' \n"}],
+                "username": "Github Actions"}' ${{ secrets.DISCORD_WEBHOOK }}
+            fi
           fi
