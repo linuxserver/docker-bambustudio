@@ -18,9 +18,9 @@ development_versions: false
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
-param_usage_include_env: true
-param_env_vars:
-  - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
+opt_param_usage_include_env: true
+opt_param_env_vars:
+  - { env_var: "DARK_MODE", env_value: "true", desc: "Set this to true to enable dark mode for Bambu Studio." }
 param_usage_include_vols: true
 param_volumes:
   - { vol_path: "/config", vol_host_path: "/path/to/config", desc: "Users home directory in the container, stores program settings and files." }
@@ -90,6 +90,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "29.07.24:", desc: "Add required fonts and environment variable for dark mode." }
   - { date: "10.02.24:", desc: "Update Readme with new env vars." }
   - { date: "08.02.24:", desc: "Fix printer camera by ingesting Fedora Appimage, Add program icon for PWA ingestion." }
   - { date: "15.11.23:", desc: "Initial release." }

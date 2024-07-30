@@ -21,6 +21,8 @@ RUN \
   DEBIAN_FRONTEND=noninteractive \
   apt-get install --no-install-recommends -y \
     firefox-esr \
+    fonts-dejavu \
+    fonts-dejavu-extra \
     gstreamer1.0-alsa \
     gstreamer1.0-gl \
     gstreamer1.0-gtk3 \
