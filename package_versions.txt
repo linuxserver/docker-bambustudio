@@ -105,17 +105,17 @@ cron-daemon-common                                                            3.
 cross-spawn                                                                   7.0.3                                   npm                         
 cryptography                                                                  38.0.4                                  python     (+1 duplicate)   
 cssesc                                                                        3.0.0                                   npm                         
-cups                                                                          2.4.2-3+deb12u5                         deb                         
-cups-client                                                                   2.4.2-3+deb12u5                         deb                         
-cups-common                                                                   2.4.2-3+deb12u5                         deb                         
-cups-core-drivers                                                             2.4.2-3+deb12u5                         deb                         
-cups-daemon                                                                   2.4.2-3+deb12u5                         deb                         
+cups                                                                          2.4.2-3+deb12u7                         deb                         
+cups-client                                                                   2.4.2-3+deb12u7                         deb                         
+cups-common                                                                   2.4.2-3+deb12u7                         deb                         
+cups-core-drivers                                                             2.4.2-3+deb12u7                         deb                         
+cups-daemon                                                                   2.4.2-3+deb12u7                         deb                         
 cups-filters                                                                  1.28.17-3                               deb                         
 cups-filters-core-drivers                                                     1.28.17-3                               deb                         
-cups-ipp-utils                                                                2.4.2-3+deb12u5                         deb                         
-cups-ppdc                                                                     2.4.2-3+deb12u5                         deb                         
-cups-server-common                                                            2.4.2-3+deb12u5                         deb                         
-curl                                                                          7.88.1-10+deb12u6                       deb                         
+cups-ipp-utils                                                                2.4.2-3+deb12u7                         deb                         
+cups-ppdc                                                                     2.4.2-3+deb12u7                         deb                         
+cups-server-common                                                            2.4.2-3+deb12u7                         deb                         
+curl                                                                          7.88.1-10+deb12u7                       deb                         
 dario.cat/mergo                                                               v1.0.0                                  go-module  (+2 duplicates)  
 dash                                                                          0.5.12-2                                deb                         
 dbus                                                                          1.14.10-1~deb12u1                       deb                         
@@ -179,7 +179,7 @@ file-uri-to-path                                                              1.
 filelist                                                                      1.0.4                                   npm                         
 finalhandler                                                                  1.2.0                                   npm                         
 findutils                                                                     4.9.0-4                                 deb                         
-firefox-esr                                                                   115.14.0esr-1~deb12u1                   deb                         
+firefox-esr                                                                   115.15.0esr-1~deb12u1                   deb                         
 fontconfig                                                                    2.14.1-4                                deb                         
 fontconfig-config                                                             2.14.1-4                                deb                         
 fonts-dejavu                                                                  2.37-6                                  deb                         
@@ -590,7 +590,7 @@ gstreamer1.0-pulseaudio                                                       1.
 gstreamer1.0-qt5                                                              1.22.0-5+deb12u1                        deb                         
 gstreamer1.0-tools                                                            1.22.0-2                                deb                         
 gstreamer1.0-x                                                                1.22.0-3+deb12u2                        deb                         
-gtk-update-icon-cache                                                         3.24.38-2~deb12u1                       deb                         
+gtk-update-icon-cache                                                         3.24.38-2~deb12u2                       deb                         
 gzip                                                                          1.12-1                                  deb                         
 has-flag                                                                      4.0.0                                   npm                         
 has-property-descriptors                                                      1.0.2                                   npm                         
@@ -712,11 +712,11 @@ libbrotli1                                                                    1.
 libbs2b0                                                                      3.1.0+dfsg-7                            deb                         
 libbsd0                                                                       0.11.7-2                                deb                         
 libbz2-1.0                                                                    1.0.8-5+b1                              deb                         
-libc-bin                                                                      2.36-9+deb12u7                          deb                         
-libc-dev-bin                                                                  2.36-9+deb12u7                          deb                         
-libc-l10n                                                                     2.36-9+deb12u7                          deb                         
-libc6                                                                         2.36-9+deb12u7                          deb                         
-libc6-dev                                                                     2.36-9+deb12u7                          deb                         
+libc-bin                                                                      2.36-9+deb12u8                          deb                         
+libc-dev-bin                                                                  2.36-9+deb12u8                          deb                         
+libc-l10n                                                                     2.36-9+deb12u8                          deb                         
+libc6                                                                         2.36-9+deb12u8                          deb                         
+libc6-dev                                                                     2.36-9+deb12u8                          deb                         
 libcaca0                                                                      0.99.beta20-3                           deb                         
 libcairo-gobject2                                                             1.16.0-7                                deb                         
 libcairo2                                                                     1.16.0-7                                deb                         
@@ -743,10 +743,10 @@ libcom-err2                                                                   1.
 libcrypt-dev                                                                  1:4.4.33-2                              deb                         
 libcrypt1                                                                     1:4.4.33-2                              deb                         
 libcryptsetup12                                                               2:2.6.1-4~deb12u2                       deb                         
-libcups2                                                                      2.4.2-3+deb12u5                         deb                         
+libcups2                                                                      2.4.2-3+deb12u7                         deb                         
 libcupsfilters1                                                               1.28.17-3                               deb                         
-libcurl3-gnutls                                                               7.88.1-10+deb12u6                       deb                         
-libcurl4                                                                      7.88.1-10+deb12u6                       deb                         
+libcurl3-gnutls                                                               7.88.1-10+deb12u7                       deb                         
+libcurl4                                                                      7.88.1-10+deb12u7                       deb                         
 libdata-optlist-perl                                                          0.113-1                                 deb                         
 libdatetime-locale-perl                                                       1:1.37-1                                deb                         
 libdatetime-perl                                                              2:1.59-1                                deb                         
@@ -888,8 +888,8 @@ libgstreamer-plugins-base1.0-0                                                1.
 libgstreamer-plugins-base1.0-dev                                              1.22.0-3+deb12u2                        deb                         
 libgstreamer1.0-0                                                             1.22.0-2                                deb                         
 libgstreamer1.0-dev                                                           1.22.0-2                                deb                         
-libgtk-3-0                                                                    3.24.38-2~deb12u1                       deb                         
-libgtk-3-common                                                               3.24.38-2~deb12u1                       deb                         
+libgtk-3-0                                                                    3.24.38-2~deb12u2                       deb                         
+libgtk-3-common                                                               3.24.38-2~deb12u2                       deb                         
 libgudev-1.0-0                                                                237-2                                   deb                         
 libgudev-1.0-dev                                                              237-2                                   deb                         
 libgupnp-1.6-0                                                                1.6.3-1                                 deb                         
@@ -1103,7 +1103,7 @@ libpackagekit-glib2-18                                                        1.
 libpam-modules                                                                1.5.2-6+deb12u1                         deb                         
 libpam-modules-bin                                                            1.5.2-6+deb12u1                         deb                         
 libpam-runtime                                                                1.5.2-6+deb12u1                         deb                         
-libpam-systemd                                                                252.26-1~deb12u2                        deb                         
+libpam-systemd                                                                252.30-1~deb12u2                        deb                         
 libpam0g                                                                      1.5.2-6+deb12u1                         deb                         
 libpango-1.0-0                                                                1.50.12+ds-1                            deb                         
 libpangocairo-1.0-0                                                           1.50.12+ds-1                            deb                         
@@ -1231,7 +1231,7 @@ libsrtp2-1                                                                    2.
 libss2                                                                        1.47.0-2                                deb                         
 libssh-gcrypt-4                                                               0.10.6-0+deb12u1                        deb                         
 libssh2-1                                                                     1.10.0-3+b1                             deb                         
-libssl3                                                                       3.0.13-1~deb12u1                        deb                         
+libssl3                                                                       3.0.14-1~deb12u1                        deb                         
 libstartup-notification0                                                      0.12-6+b1                               deb                         
 libstdc++6                                                                    12.2.0-14                               deb                         
 libstemmer0d                                                                  2.2.0-2                                 deb                         
@@ -1248,8 +1248,8 @@ libswresample-dev                                                             7:
 libswresample4                                                                7:5.1.6-0+deb12u1                       deb                         
 libswscale-dev                                                                7:5.1.6-0+deb12u1                       deb                         
 libswscale6                                                                   7:5.1.6-0+deb12u1                       deb                         
-libsystemd-shared                                                             252.26-1~deb12u2                        deb                         
-libsystemd0                                                                   252.26-1~deb12u2                        deb                         
+libsystemd-shared                                                             252.30-1~deb12u2                        deb                         
+libsystemd0                                                                   252.30-1~deb12u2                        deb                         
 libsz2                                                                        1.0.6-1+b1                              deb                         
 libtag1v5                                                                     1.13-2                                  deb                         
 libtag1v5-vanilla                                                             1.13-2                                  deb                         
@@ -1277,8 +1277,8 @@ libtry-tiny-perl                                                              0.
 libtwolame0                                                                   0.4.0-2                                 deb                         
 libuchardet0                                                                  0.0.7-1                                 deb                         
 libucx0                                                                       1.13.1-1                                deb                         
-libudev-dev                                                                   252.26-1~deb12u2                        deb                         
-libudev1                                                                      252.26-1~deb12u2                        deb                         
+libudev-dev                                                                   252.30-1~deb12u2                        deb                         
+libudev1                                                                      252.30-1~deb12u2                        deb                         
 libudfread0                                                                   1.1.2-1                                 deb                         
 libunbound8                                                                   1.17.1-2+deb12u2                        deb                         
 libunistring2                                                                 1.0-2                                   deb                         
@@ -1411,9 +1411,9 @@ libzstd1                                                                      1.
 libzvbi-common                                                                0.2.41-1                                deb                         
 libzvbi0                                                                      0.2.41-1                                deb                         
 libzxing2                                                                     1.4.0-3+b1                              deb                         
-linux-libc-dev                                                                6.1.99-1                                deb                         
-locales                                                                       2.36-9+deb12u7                          deb                         
-locales-all                                                                   2.36-9+deb12u7                          deb                         
+linux-libc-dev                                                                6.1.106-3                               deb                         
+locales                                                                       2.36-9+deb12u8                          deb                         
+locales-all                                                                   2.36-9+deb12u8                          deb                         
 login                                                                         1:4.13+dfsg1-1+b1                       deb                         
 logsave                                                                       1.47.0-2                                deb                         
 lru-cache                                                                     10.2.2                                  npm                         
@@ -1482,7 +1482,7 @@ ocl-icd-libopencl1                                                            2.
 on-finished                                                                   2.4.1                                   npm                         
 openbox                                                                       3.6.1-10                                deb                         
 openssh-client                                                                1:9.2p1-2+deb12u3                       deb                         
-openssl                                                                       3.0.13-1~deb12u1                        deb                         
+openssl                                                                       3.0.14-1~deb12u1                        deb                         
 p-map                                                                         4.0.0                                   npm                         
 packagekit                                                                    1.2.6-5                                 deb                         
 pacote                                                                        18.0.3                                  npm                         
@@ -1610,8 +1610,8 @@ sudo                                                                          1.
 supports-color                                                                7.2.0                                   npm                         
 supports-color                                                                9.4.0                                   npm                         
 swiper                                                                        7.2.0                                   npm        (+1 duplicate)   
-systemd                                                                       252.26-1~deb12u2                        deb                         
-systemd-sysv                                                                  252.26-1~deb12u2                        deb                         
+systemd                                                                       252.30-1~deb12u2                        deb                         
+systemd-sysv                                                                  252.30-1~deb12u2                        deb                         
 sysvinit-utils                                                                3.06-4                                  deb                         
 tags.cncf.io/container-device-interface                                       v0.7.2                                  go-module  (+2 duplicates)  
 tags.cncf.io/container-device-interface/specs-go                              v0.7.0                                  go-module  (+1 duplicate)   
@@ -1626,7 +1626,7 @@ tuf-js                                                                        2.
 type-is                                                                       1.6.18                                  npm                         
 tzdata                                                                        2024a-0+deb12u1                         deb                         
 ucf                                                                           3.0043+nmu1                             deb                         
-udev                                                                          252.26-1~deb12u2                        deb                         
+udev                                                                          252.30-1~deb12u2                        deb                         
 undici-types                                                                  6.19.8                                  npm                         
 unique-filename                                                               3.0.0                                   npm                         
 unique-slug                                                                   4.0.0                                   npm                         
