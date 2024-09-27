@@ -131,7 +131,7 @@ services:
       - TZ=Etc/UTC
       - DARK_MODE=true #optional
     volumes:
-      - /path/to/config:/config
+      - /path/to/bambustudio/config:/config
     ports:
       - 3000:3000
       - 3001:3001
@@ -150,7 +150,7 @@ docker run -d \
   -e DARK_MODE=true `#optional` \
   -p 3000:3000 \
   -p 3001:3001 \
-  -v /path/to/config:/config \
+  -v /path/to/bambustudio/config:/config \
   --restart unless-stopped \
   lscr.io/linuxserver/bambustudio:latest
 ```

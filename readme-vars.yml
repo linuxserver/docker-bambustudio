@@ -23,7 +23,7 @@ opt_param_env_vars:
   - { env_var: "DARK_MODE", env_value: "true", desc: "Set this to true to enable dark mode for Bambu Studio." }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/config", desc: "Users home directory in the container, stores program settings and files." }
+  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Users home directory in the container, stores program settings and files." }
 param_usage_include_ports: true
 param_ports:
   - { external_port: "3000", internal_port: "3000", port_desc: "Bambu Studio desktop gui." }
