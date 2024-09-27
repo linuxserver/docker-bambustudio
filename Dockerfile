@@ -56,6 +56,7 @@ RUN \
   ./bambu.app --appimage-extract && \
   mv squashfs-root /opt/bambustudio && \
   localedef -i en_GB -f UTF-8 en_GB.UTF-8 && \
+  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
   rm -rf \
