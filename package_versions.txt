@@ -181,7 +181,7 @@ file-uri-to-path                                                              1.
 filelist                                                                      1.0.4                                               npm                          
 finalhandler                                                                  1.3.1                                               npm                          
 findutils                                                                     4.9.0-4                                             deb                          
-firefox-esr                                                                   115.15.0esr-1~deb12u1                               deb                          
+firefox-esr                                                                   128.3.0esr-1~deb12u1                                deb                          
 fontconfig                                                                    2.14.1-4                                            deb                          
 fontconfig-config                                                             2.14.1-4                                            deb                          
 fonts-dejavu                                                                  2.37-6                                              deb                          
@@ -763,7 +763,6 @@ libdatrie1                                                                    0.
 libdav1d6                                                                     1.0.0-2+deb12u1                                     deb                          
 libdb5.3                                                                      5.3.28+dfsg2-1                                      deb                          
 libdbus-1-3                                                                   1.14.10-1~deb12u1                                   deb                          
-libdbus-glib-1-2                                                              0.112-3                                             deb                          
 libdc1394-25                                                                  2.2.6-4                                             deb                          
 libdc1394-dev                                                                 2.2.6-4                                             deb                          
 libdca0                                                                       0.0.7-2                                             deb                          
@@ -1419,7 +1418,7 @@ libzstd1                                                                      1.
 libzvbi-common                                                                0.2.41-1                                            deb                          
 libzvbi0                                                                      0.2.41-1                                            deb                          
 libzxing2                                                                     1.4.0-3+b1                                          deb                          
-linux-libc-dev                                                                6.1.106-3                                           deb                          
+linux-libc-dev                                                                6.1.112-1                                           deb                          
 locales                                                                       2.36-9+deb12u8                                      deb                          
 locales-all                                                                   2.36-9+deb12u8                                      deb                          
 login                                                                         1:4.13+dfsg1-1+b1                                   deb                          
