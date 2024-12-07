@@ -7,38 +7,33 @@ project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/ma
 project_blurb: "[Bambu Studio]({{ project_url }}) Bambu Studio is an open-source, cutting-edge, feature-rich slicing software. It contains project-based workflows, systematically optimized slicing algorithms, and an easy-to-use graphical interface, bringing users an incredibly smooth printing experience."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
 project_blurb_optional_extras_enabled: false
-
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "latest"}
-
+  - {arch: "{{ arch_x86_64 }}", tag: "latest"}
 # development version
 development_versions: false
-
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 opt_param_usage_include_env: true
 opt_param_env_vars:
-  - { env_var: "DARK_MODE", env_value: "true", desc: "Set this to true to enable dark mode for Bambu Studio." }
+  - {env_var: "DARK_MODE", env_value: "true", desc: "Set this to true to enable dark mode for Bambu Studio."}
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Users home directory in the container, stores program settings and files." }
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Users home directory in the container, stores program settings and files."}
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "3000", internal_port: "3000", port_desc: "Bambu Studio desktop gui." }
-  - { external_port: "3001", internal_port: "3001", port_desc: "Bambu Studio desktop gui HTTPS." }
+  - {external_port: "3000", internal_port: "3000", port_desc: "Bambu Studio desktop gui."}
+  - {external_port: "3001", internal_port: "3001", port_desc: "Bambu Studio desktop gui HTTPS."}
 opt_security_opt_param: true
 opt_security_opt_param_vars:
-  - { run_var: "seccomp=unconfined", compose_var: "seccomp:unconfined", desc: "For Docker Engine only, many modern gui apps need this to function on older hosts as syscalls are unknown to Docker." }
-
+  - {run_var: "seccomp=unconfined", compose_var: "seccomp:unconfined", desc: "For Docker Engine only, many modern gui apps need this to function on older hosts as syscalls are unknown to Docker."}
 # Kasm blurb settings
 kasm_blurb: true
 show_nvidia: true
 external_http_port: "3000"
 external_https_port: "3001"
 noto_fonts: "fonts-noto-cjk"
-
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -46,10 +41,67 @@ app_setup_block: |
 
   * http://yourhost:3000/
   * https://yourhost:3001/
-
+# init diagram
+init_diagram: |
+  "bambustudio:latest": {
+    docker-mods
+    base {
+      fix-attr +\nlegacy cont-init
+    }
+    docker-mods -> base
+    legacy-services
+    custom services
+    init-services -> legacy-services
+    init-services -> custom services
+    custom services -> legacy-services
+    legacy-services -> ci-service-check
+    init-migrations -> init-adduser
+    init-kasmvnc-end -> init-config
+    init-os-end -> init-config
+    init-config -> init-config-end
+    init-crontab-config -> init-config-end
+    init-config -> init-crontab-config
+    init-mods-end -> init-custom-files
+    base -> init-envfile
+    init-os-end -> init-kasmvnc
+    init-nginx -> init-kasmvnc-config
+    init-video -> init-kasmvnc-end
+    base -> init-migrations
+    init-config-end -> init-mods
+    init-mods-package-install -> init-mods-end
+    init-mods -> init-mods-package-install
+    init-kasmvnc -> init-nginx
+    init-adduser -> init-os-end
+    init-envfile -> init-os-end
+    init-custom-files -> init-services
+    init-kasmvnc-config -> init-video
+    init-services -> svc-cron
+    svc-cron -> legacy-services
+    init-services -> svc-de
+    svc-nginx -> svc-de
+    svc-de -> legacy-services
+    init-services -> svc-docker
+    svc-de -> svc-docker
+    svc-docker -> legacy-services
+    init-services -> svc-kasmvnc
+    svc-pulseaudio -> svc-kasmvnc
+    svc-kasmvnc -> legacy-services
+    init-services -> svc-kclient
+    svc-kasmvnc -> svc-kclient
+    svc-kclient -> legacy-services
+    init-services -> svc-nginx
+    svc-kclient -> svc-nginx
+    svc-nginx -> legacy-services
+    init-services -> svc-pulseaudio
+    svc-pulseaudio -> legacy-services
+  }
+  Base Images: {
+    "baseimage-kasmvnc:debianbookworm" <- "baseimage-debian:bookworm"
+  }
+  "bambustudio:latest" <- Base Images
 # changelog
 changelogs:
-  - { date: "29.07.24:", desc: "Add required fonts and environment variable for dark mode." }
-  - { date: "10.02.24:", desc: "Update Readme with new env vars." }
-  - { date: "08.02.24:", desc: "Fix printer camera by ingesting Fedora Appimage, Add program icon for PWA ingestion." }
-  - { date: "15.11.23:", desc: "Initial release." }
+  - {date: "29.07.24:", desc: "Add required fonts and environment variable for dark mode."}
+  - {date: "10.02.24:", desc: "Update Readme with new env vars."}
+  - {date: "08.02.24:", desc: "Fix printer camera by ingesting Fedora Appimage, Add program icon for PWA ingestion."}
+  - {date: "15.11.23:", desc: "Initial release."}
