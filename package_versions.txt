@@ -1112,7 +1112,7 @@ libopenexr-3-1-30                                                             3.
 libopenexr-dev                                                                3.1.5-5                                 deb                         
 libopengl-dev                                                                 1.6.0-1                                 deb                         
 libopengl0                                                                    1.6.0-1                                 deb                         
-libopenh264-7                                                                 2.3.1+dfsg-3                            deb                         
+libopenh264-7                                                                 2.3.1+dfsg-3+deb12u1                    deb                         
 libopenjp2-7                                                                  2.5.0-2+deb12u1                         deb                         
 libopenmpi3                                                                   4.1.4-3+b1                              deb                         
 libopenmpt0                                                                   0.6.9-1                                 deb                         
