@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-kasmvnc:debianbookworm
+FROM ghcr.io/linuxserver/baseimage-selkies:debianbookworm
 
 # set version label
 ARG BUILD_DATE
@@ -16,7 +16,7 @@ ENV TITLE=BambuStudio \
 RUN \
   echo "**** add icon ****" && \
   curl -o \
-    /kclient/public/icon.png \
+    /usr/share/selkies/www/icon.png \
     https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bambustudio-logo.png && \
   echo "**** install packages ****" && \
   apt-get update && \
@@ -25,21 +25,11 @@ RUN \
     firefox-esr \
     fonts-dejavu \
     fonts-dejavu-extra \
-    gstreamer1.0-alsa \
-    gstreamer1.0-gl \
-    gstreamer1.0-gtk3 \
-    gstreamer1.0-libav \
-    gstreamer1.0-plugins-bad \
-    gstreamer1.0-plugins-base \
-    gstreamer1.0-plugins-good \
-    gstreamer1.0-plugins-ugly \
+    gir1.2-gst-plugins-bad-1.0 \
+    gir1.2-gstreamer-1.0 \
+    gstreamer1.0-nice \
+    gstreamer1.0-plugins-* \
     gstreamer1.0-pulseaudio \
-    gstreamer1.0-qt5 \
-    gstreamer1.0-tools \
-    gstreamer1.0-x \
-    libgstreamer1.0 \
-    libgstreamer-plugins-bad1.0 \
-    libgstreamer-plugins-base1.0 \
     libosmesa6 \
     libwebkit2gtk-4.0-37 \
     libwx-perl && \

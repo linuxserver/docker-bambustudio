@@ -24,23 +24,19 @@ param_volumes:
   - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Users home directory in the container, stores program settings and files."}
 param_usage_include_ports: true
 param_ports:
-  - {external_port: "3000", internal_port: "3000", port_desc: "Bambu Studio desktop gui."}
+  - {external_port: "3000", internal_port: "3000", port_desc: "Bambu Studio desktop gui HTTP, must be proxied."}
   - {external_port: "3001", internal_port: "3001", port_desc: "Bambu Studio desktop gui HTTPS."}
 opt_security_opt_param: true
 opt_security_opt_param_vars:
   - {run_var: "seccomp=unconfined", compose_var: "seccomp:unconfined", desc: "For Docker Engine only, many modern gui apps need this to function on older hosts as syscalls are unknown to Docker."}
-# Kasm blurb settings
-kasm_blurb: true
+# Selkies blurb settings
+selkies_blurb: true
 show_nvidia: true
-external_http_port: "3000"
-external_https_port: "3001"
-noto_fonts: "fonts-noto-cjk"
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
   The application can be accessed at:
 
-  * http://yourhost:3000/
   * https://yourhost:3001/
 # init diagram
 init_diagram: |
@@ -104,6 +100,7 @@ init_diagram: |
   "bambustudio:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "12.07.25:", desc: "Rebase to Selkies, HTTPS IS NOW REQUIRED."}
   - {date: "29.07.24:", desc: "Add required fonts and environment variable for dark mode."}
   - {date: "10.02.24:", desc: "Update Readme with new env vars."}
   - {date: "08.02.24:", desc: "Fix printer camera by ingesting Fedora Appimage, Add program icon for PWA ingestion."}
