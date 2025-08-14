@@ -428,6 +428,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **14.08.25:** - Rebase to Ubuntu Noble to ingest approved appimage.
 * **12.07.25:** - Rebase to Selkies, HTTPS IS NOW REQUIRED.
 * **29.07.24:** - Add required fonts and environment variable for dark mode.
 * **10.02.24:** - Update Readme with new env vars.

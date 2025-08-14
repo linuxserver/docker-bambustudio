@@ -104,6 +104,7 @@ init_diagram: |
   "bambustudio:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "14.08.25:", desc: "Rebase to Ubuntu Noble to ingest approved appimage."}
   - {date: "12.07.25:", desc: "Rebase to Selkies, HTTPS IS NOW REQUIRED."}
   - {date: "29.07.24:", desc: "Add required fonts and environment variable for dark mode."}
   - {date: "10.02.24:", desc: "Update Readme with new env vars."}
