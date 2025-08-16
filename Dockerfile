@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-selkies:debianbookworm
+FROM ghcr.io/linuxserver/baseimage-selkies:ubuntunoble
 
 # set version label
 ARG BUILD_DATE
@@ -19,10 +19,11 @@ RUN \
     /usr/share/selkies/www/icon.png \
     https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bambustudio-logo.png && \
   echo "**** install packages ****" && \
+  add-apt-repository ppa:xtradeb/apps && \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
   apt-get install --no-install-recommends -y \
-    firefox-esr \
+    firefox \
     fonts-dejavu \
     fonts-dejavu-extra \
     gir1.2-gst-plugins-bad-1.0 \
@@ -31,7 +32,7 @@ RUN \
     gstreamer1.0-plugins-* \
     gstreamer1.0-pulseaudio \
     libosmesa6 \
-    libwebkit2gtk-4.0-37 \
+    libwebkit2gtk-4.1-0 \
     libwx-perl && \
   echo "**** install bambu studio from appimage ****" && \
   if [ -z ${BAMBUSTUDIO_VERSION+x} ]; then \
@@ -39,7 +40,7 @@ RUN \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/latest"     | awk '/url/{print $4;exit}' FS='[""]') && \
-  DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | awk '/browser_download_url.*fedora/{print $4;exit}' FS='[""]') && \
+  DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | awk '/browser_download_url.*24.04/{print $4;exit}' FS='[""]') && \
   cd /tmp && \
   curl -o \
     /tmp/bambu.app -L \
