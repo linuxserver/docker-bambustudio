@@ -29,6 +29,8 @@ param_ports:
 opt_security_opt_param: true
 opt_security_opt_param_vars:
   - {run_var: "seccomp=unconfined", compose_var: "seccomp:unconfined", desc: "For Docker Engine only, many modern gui apps need this to function on older hosts as syscalls are unknown to Docker."}
+opt_custom_params:
+  - {name: "shm-size", name_compose: "shm_size", value: "1gb", desc: "We set this to 1 gig to prevent modern applications from crashing."}
 # Selkies blurb settings
 selkies_blurb: true
 show_nvidia: true
@@ -108,6 +110,7 @@ init_diagram: |
   "bambustudio:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "31.08.25:", desc: "Update AppImage ingestion."}
   - {date: "14.08.25:", desc: "Rebase to Ubuntu Noble to ingest approved appimage."}
   - {date: "12.07.25:", desc: "Rebase to Selkies, HTTPS IS NOW REQUIRED."}
   - {date: "29.07.24:", desc: "Add required fonts and environment variable for dark mode."}
