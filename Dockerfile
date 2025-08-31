@@ -33,18 +33,23 @@ RUN \
     gstreamer1.0-pulseaudio \
     libosmesa6 \
     libwebkit2gtk-4.1-0 \
-    libwx-perl && \
+    libwx-perl \
+    unzip && \
   echo "**** install bambu studio from appimage ****" && \
   if [ -z ${BAMBUSTUDIO_VERSION+x} ]; then \
     BAMBUSTUDIO_VERSION=$(curl -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/latest" \
     | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/latest"     | awk '/url/{print $4;exit}' FS='[""]') && \
-  DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | awk '/browser_download_url.*24.04/{print $4;exit}' FS='[""]') && \
+  DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | awk '/browser_download_url.*ubuntu-24.04/{print $4;exit}' FS='[""]') && \
   cd /tmp && \
   curl -o \
-    /tmp/bambu.app -L \
+    /tmp/bambu.zip -L \
     "${DOWNLOAD_URL}" && \
+  unzip bambu.zip && \
+  mv \
+    *.AppImage \
+    bambu.app && \
   chmod +x /tmp/bambu.app && \
   ./bambu.app --appimage-extract && \
   mv squashfs-root /opt/bambustudio && \
