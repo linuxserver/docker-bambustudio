@@ -111,7 +111,7 @@ jobs:
             exit 0
           else
             assets=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/tags/${EXT_RELEASE}" | jq -r '.assets[].browser_download_url')
-            if grep -q "BambuStudio_ubuntu-24.04" <<< "${assets}"; then
+            if grep -q "Bambu_Studio_ubuntu-24.04" <<< "${assets}"; then
               artifacts_found="true"
             else
               artifacts_found="false"
