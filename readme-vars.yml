@@ -109,6 +109,7 @@ init_diagram: |
   "bambustudio:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "28.12.25:", desc: "Add Wayland init logic."}
   - {date: "31.08.25:", desc: "Update AppImage ingestion."}
   - {date: "14.08.25:", desc: "Rebase to Ubuntu Noble to ingest approved appimage."}
   - {date: "12.07.25:", desc: "Rebase to Selkies, HTTPS IS NOW REQUIRED."}

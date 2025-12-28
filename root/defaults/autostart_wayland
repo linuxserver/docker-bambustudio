@@ -1,0 +1,10 @@
+# Enable dark mode if defined
+if [ "${DARK_MODE}" = "true" ] && [ ! -f "$HOME/.config/gtk-3.0/settings.ini" ]; then
+  mkdir -p $HOME/.config/gtk-3.0
+  echo '[Settings]' > $HOME/.config/gtk-3.0/settings.ini
+  echo 'gtk-application-prefer-dark-theme=1' >> $HOME/.config/gtk-3.0/settings.ini
+elif [ "${DARK_MODE}" != "true" ] && [ -f "$HOME/.config/gtk-3.0/settings.ini" ]; then
+  rm -f "$HOME/.config/gtk-3.0/settings.ini"
+fi
+
+/opt/bambustudio/AppRun
