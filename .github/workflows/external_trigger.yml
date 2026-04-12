@@ -29,8 +29,8 @@ jobs:
           echo "> [!NOTE]" >> $GITHUB_STEP_SUMMARY
           echo "> External trigger running off of master branch. To disable this trigger, add \`bambustudio_master\` into the Github organizational variable \`SKIP_EXTERNAL_TRIGGER\`." >> $GITHUB_STEP_SUMMARY
           printf "\n## Retrieving external version\n\n" >> $GITHUB_STEP_SUMMARY
-          EXT_RELEASE=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/latest" | jq -r '. | .tag_name')
-          echo "Type is \`github_stable\`" >> $GITHUB_STEP_SUMMARY
+          EXT_RELEASE=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases" | jq -r '.[0] | .tag_name')
+          echo "Type is \`github_devel\`" >> $GITHUB_STEP_SUMMARY
           if grep -q "^bambustudio_master_${EXT_RELEASE}" <<< "${SKIP_EXTERNAL_TRIGGER}"; then
             echo "> [!WARNING]" >> $GITHUB_STEP_SUMMARY
             echo "> Github organizational variable \`SKIP_EXTERNAL_TRIGGER\` matches current external release; skipping trigger." >> $GITHUB_STEP_SUMMARY
@@ -111,7 +111,7 @@ jobs:
             exit 0
           else
             assets=$(curl -u "${{ secrets.CR_USER }}:${{ secrets.CR_PAT }}" -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases/tags/${EXT_RELEASE}" | jq -r '.assets[].browser_download_url')
-            if grep -q "Bambu_Studio_ubuntu-24.04" <<< "${assets}"; then
+            if grep -q "BambuStudio_ubuntu-24.04" <<< "${assets}"; then
               artifacts_found="true"
             else
               artifacts_found="false"
