@@ -104,7 +104,7 @@ init_diagram: |
     svc-xsettingsd -> legacy-services
   }
   Base Images: {
-    "baseimage-selkies:ubuntunoble" <- "baseimage-ubuntu:noble"
+    "baseimage-selkies:ubunturesolute" <- "baseimage-ubuntu:resolute"
   }
   "bambustudio:latest" <- Base Images
 # changelog
