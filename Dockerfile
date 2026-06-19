@@ -40,7 +40,7 @@ RUN \
   RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases" \
     | awk '/url/{print $4;exit}' FS='[""]') && \
   DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" \
-    | awk '/browser_download_url.*ubuntu-24.04/{print $4;exit}' FS='[""]') && \
+    | awk '/browser_download_url.*ubuntu24.04/{print $4;exit}' FS='[""]') && \
   cd /tmp && \
   curl -o \
     /tmp/bambu.app -L \
