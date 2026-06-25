@@ -84,7 +84,7 @@ emacsen-common                                                                3.
 evdev                                                                         1.9.3                                  python                      
 file                                                                          1:5.46-5build2                         deb                         
 findutils                                                                     4.10.0-3build2                         deb                         
-firefox                                                                       1:152.0+build1-1xtradeb1.2604.1        deb                         
+firefox                                                                       1:152.0.1+build1-1xtradeb1.2604.1      deb                         
 fontconfig                                                                    2.17.1-3ubuntu1                        deb                         
 fontconfig-config                                                             2.17.1-3ubuntu1                        deb                         
 fonts-dejavu                                                                  2.37-8build1                           deb                         
