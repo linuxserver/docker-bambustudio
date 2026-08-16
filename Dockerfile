@@ -38,9 +38,9 @@ RUN \
     libwx-perl && \
   echo "**** install bambu studio from appimage ****" && \
   RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases" \
-    | awk '/url/{print $4;exit}' FS='[""]') && \
+    | jq -r '.[0].url') && \
   DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" \
-    | awk '/browser_download_url.*ubuntu24.04/{print $4;exit}' FS='[""]') && \
+    | jq -r 'first(.assets[].browser_download_url | select(test("ubuntu24.04")))') && \
   cd /tmp && \
   curl -o \
     /tmp/bambu.app -L \
