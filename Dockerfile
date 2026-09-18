@@ -40,7 +40,7 @@ RUN \
   RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/bambulab/BambuStudio/releases" \
     | jq -r '.[0].url') && \
   DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" \
-    | jq -r 'first(.assets[].browser_download_url | select(test("ubuntu24.04")))') && \
+    | jq -r 'first(.assets[].browser_download_url | select(test("BambuStudio_ubu24")))') && \
   cd /tmp && \
   curl -o \
     /tmp/bambu.app -L \
@@ -48,6 +48,10 @@ RUN \
   chmod +x /tmp/bambu.app && \
   ./bambu.app --appimage-extract && \
   mv squashfs-root /opt/bambustudio && \
+  ln -s \
+    /opt/bambustudio/resources/fonts \
+    /usr/share/fonts/bambustudio && \
+  fc-cache -f && \
   localedef -i en_GB -f UTF-8 en_GB.UTF-8 && \
   printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
