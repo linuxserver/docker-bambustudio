@@ -7,4 +7,7 @@ elif [ "${DARK_MODE}" != "true" ] && [ -f "$HOME/.config/gtk-3.0/settings.ini" ]
   rm -f "$HOME/.config/gtk-3.0/settings.ini"
 fi
 
+gio mime x-scheme-handler/http firefox.desktop
+gio mime x-scheme-handler/https firefox.desktop
+
 /opt/bambustudio/AppRun
