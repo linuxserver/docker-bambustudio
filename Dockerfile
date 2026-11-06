@@ -53,6 +53,7 @@ RUN \
     /usr/share/fonts/bambustudio && \
   fc-cache -f && \
   localedef -i en_GB -f UTF-8 en_GB.UTF-8 && \
+  find /opt/bambustudio -type d -exec chmod 755 {} + && \
   printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   apt-get autoclean && \
